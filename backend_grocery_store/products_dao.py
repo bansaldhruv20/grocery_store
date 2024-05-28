@@ -4,7 +4,8 @@ from sql_connection import get_sql_connection
 def get_all_products(connection):
     cursor = connection.cursor()
     query = (
-        "select products.product_id, products.name, products.uom_id, products.price_per_unit, uom.uom_name from products inner join uom on products.uom_id=uom.uom_id")
+        "select products.product_id, products.name, products.uom_id, products.price_per_unit, uom.uom_name from "
+        "products inner join uom on products.uom_id=uom.uom_id")
 
     cursor.execute(query)
     response = []
@@ -44,10 +45,9 @@ def delete_product(connection, product_id):
 
 if __name__ == '__main__':
     connection = get_sql_connection()
-    # print(get_all_products(connection))
     print(insert_new_product(connection, {
-        'product_name': 'cabbage',
-        'uom_id': '1',
-        'price_per_unit': '10'
+        'product_name': 'toothbrush',
+        'uom_id': '2',
+        'price_per_unit': '20'
 
     }))
